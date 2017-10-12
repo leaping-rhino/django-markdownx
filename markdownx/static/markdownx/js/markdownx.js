@@ -371,7 +371,8 @@ var MarkdownX = function (parent, editor, preview) {
         properties._latency =
             Math.max(parseInt(properties.editor.getAttribute(LATENCY_ATTRIBUTE)) || 0, LATENCY_MINIMUM);
         // If `true`, the editor will expand to scrollHeight when needed.
-        properties._editorIsResizable = ((properties.editor.getAttribute(RESIZABILITY_ATTRIBUTE).match(/true/i) || []).length > 0 &&
+        properties._editorIsResizable = ((properties.editor.hasAttribute(RESIZABILITY_ATTRIBUTE) &&
+            properties.editor.getAttribute(RESIZABILITY_ATTRIBUTE).match(/true/i) || []).length > 0 &&
             properties.editor.offsetHeight > 0 &&
             properties.editor.offsetWidth > 0);
         getMarkdown();
